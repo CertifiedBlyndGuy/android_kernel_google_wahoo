@@ -60,6 +60,8 @@ ifeq ($(CONFIG_COMPAT_VDSO), y)
   endif
 endif
 
+KBUILD_CFLAGS	+= $(call cc-option,-march=armv8-a+crypto+crc,) $(call cc-option,-mcpu=cortex-a73+crypto+crc,)
+
 ifeq ($(cc-name),clang)
 KBUILD_CFLAGS	+= -mno-implicit-float
 else
