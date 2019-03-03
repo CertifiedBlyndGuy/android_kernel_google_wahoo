@@ -9138,7 +9138,6 @@ out:
 		hba->curr_dev_pwr_mode,
 		hba->uic_link_state);
 	return ret;
-
 }
 EXPORT_SYMBOL(ufshcd_runtime_suspend);
 
@@ -9173,8 +9172,7 @@ int ufshcd_runtime_resume(struct ufs_hba *hba)
 
 	if (!hba->is_powered)
 		goto out;
-	else
-		ret = ufshcd_resume(hba, UFS_RUNTIME_PM);
+        return ufshcd_resume(hba, UFS_RUNTIME_PM);
 out:
 	trace_ufshcd_runtime_resume(dev_name(hba->dev), ret,
 		ktime_to_us(ktime_sub(ktime_get(), start)),
