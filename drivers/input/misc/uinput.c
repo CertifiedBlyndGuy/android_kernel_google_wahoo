@@ -42,7 +42,7 @@
 #include <linux/input/mt.h>
 #include "../input-compat.h"
 
-static bool enable_hall_ic;
+static bool enable_hall_ic = 1;
 module_param(enable_hall_ic, bool, 0644);
 
 static int uinput_dev_event(struct input_dev *dev,
